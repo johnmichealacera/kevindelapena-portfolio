@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — AI Automation & n8n VA
 
-## Getting Started
+A **conversion-focused, single-page portfolio** for a **virtual assistant** who delivers **AI automation** and **n8n workflow** work. The site presents services, sample workflows, an about section, CTAs, and a contact path—styled as a modern SaaS landing page with clear hierarchy and subtle motion.
 
-First, run the development server:
+## What it does
+
+- **Hero** — Headline, value proposition, and primary calls to action (projects + consultation).
+- **Selected workflows** — Mock case studies (problem, solution, tools). Cards open a **modal** with **screenshots or video** demos (replace media in `src/data/projects.ts`).
+- **Services** — AI email automation, lead gen, CRM workflows, and custom n8n builds.
+- **About** — Positioning around reliability, learning, and passion for automation.
+- **CTA + contact** — Closing message and a **contact form** backed by `POST /api/contact` (wire your email provider in `src/app/api/contact/route.ts`). Optional **Calendly** embed via env.
+- **Navigation** — Sticky header with **scroll-spy** highlighting for the current section, plus a **back-to-top** control.
+- **SEO** — Metadata, `sitemap.xml`, `robots.txt`, and JSON-LD for a professional service.
+
+## Tech stack
+
+- [Next.js](https://nextjs.org) (App Router) · TypeScript · React 19  
+- [Tailwind CSS](https://tailwindcss.com) v4  
+- [shadcn/ui](https://ui.shadcn.com) (Base UI primitives)  
+- [Framer Motion](https://www.framer.com/motion/) for light animations  
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Other scripts: `npm run build`, `npm run start`, `npm run lint`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Configuration
 
-## Learn More
+| Variable | Purpose |
+|----------|---------|
+| `NEXT_PUBLIC_SITE_URL` | Canonical URL (metadata, sitemap, robots) |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | Shown in footer and contact column |
+| `NEXT_PUBLIC_CALENDLY_URL` | Calendly embed URL (optional) |
+| `CONTACT_TO` | Target inbox when you add email sending in the API route |
 
-To learn more about Next.js, take a look at the following resources:
+Branding and default copy live in `src/lib/site-config.ts`. Project stories and demo media live in `src/data/projects.ts`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project layout (high level)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `src/app/` — App Router pages, layout, API route (`api/contact`), SEO helpers  
+- `src/components/` — Layout (header, footer, back-to-top), sections, UI, motion  
+- `src/data/` — Services and projects mock data  
+- `src/hooks/` — Scroll-spy for active nav  
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built to attract clients searching for **AI automation VA**, **n8n automation**, **workflow automation**, and **virtual assistant automation** services.
