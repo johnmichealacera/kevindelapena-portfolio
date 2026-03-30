@@ -1,24 +1,74 @@
+const rawSiteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://example.com";
+
+function envUrl(key: string): string | undefined {
+  const v = process.env[key]?.trim();
+  if (!v) return undefined;
+  try {
+    new URL(v);
+    return v;
+  } catch {
+    return undefined;
+  }
+}
+
+/** Open Graph / Twitter / link previews (Facebook, LinkedIn, Instagram, JobStreet, etc.) */
+export const ogImagePath = "/kevindelapena_va.jpg";
+
 export const siteConfig = {
   name: "Kevin Dela Peña",
-  title: "AI Automation VA | n8n Workflow Automation",
+  /** Page title & primary SEO title */
+  title: "Kevin Dela Peña | AI Automation Specialist & n8n Expert",
+  /** Used where a shorter label fits (e.g. some templates) */
+  shortTitle: "AI Automation VA | n8n Workflow Automation",
   tagline: "Virtual assistant for AI automation, n8n, and workflow automation.",
+  /** ~155 chars — good for Google snippets; also used for OG/Twitter unless overridden */
   description:
-    "AI Automation VA specializing in n8n automation, workflow automation, and virtual assistant automation. I design reliable systems that save time and scale your business.",
-  url:
-    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-    "https://example.com",
+    "Kevin Dela Peña — AI automation specialist and VA building n8n workflows, integrations, and reliable business automation. Hire an n8n expert to save time and scale operations.",
+  url: rawSiteUrl,
   keywords: [
-    "AI Automation VA",
+    "Kevin Dela Peña",
+    "Kevin Dela Pena",
+    "AI automation specialist",
+    "n8n expert",
+    "n8n developer",
     "n8n automation",
-    "workflow automation",
-    "virtual assistant automation",
     "n8n workflows",
+    "workflow automation",
     "business process automation",
+    "AI Automation VA",
+    "virtual assistant automation",
+    "automation consultant",
+    "no-code automation",
+    "Philippines VA",
   ],
+  /** Absolute image URL for JSON-LD and sharing debuggers */
+  get ogImageUrl() {
+    return `${this.url}${ogImagePath}`;
+  },
+  ogImageAlt:
+    "Kevin Dela Peña — AI automation specialist and n8n workflow expert",
+  openGraphLocale: "en_US",
+  /** Optional profile URLs — set in .env for Google Knowledge Panel–style sameAs hints */
+  socialProfiles: {
+    linkedin: envUrl("NEXT_PUBLIC_LINKEDIN_URL"),
+    twitter: envUrl("NEXT_PUBLIC_TWITTER_URL"),
+    facebook: envUrl("NEXT_PUBLIC_FACEBOOK_URL"),
+    instagram: envUrl("NEXT_PUBLIC_INSTAGRAM_URL"),
+  },
+  twitterSite: process.env.NEXT_PUBLIC_TWITTER_SITE?.trim() || undefined,
+  twitterCreator: process.env.NEXT_PUBLIC_TWITTER_CREATOR?.trim() || undefined,
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@example.com",
   /** Full Calendly scheduling URL, e.g. https://calendly.com/yourname/discovery-call */
   calendlyUrl: process.env.NEXT_PUBLIC_CALENDLY_URL?.trim() || "",
-} as const;
+};
+
+export function siteJsonLdSameAs(): string[] {
+  const { linkedin, twitter, facebook, instagram } = siteConfig.socialProfiles;
+  return [linkedin, twitter, facebook, instagram].filter(
+    (u): u is string => Boolean(u)
+  );
+}
 
 /** Opens Calendly in a new tab when configured; otherwise scrolls to #contact */
 export function bookingConsultationHref(): string {

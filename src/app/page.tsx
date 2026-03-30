@@ -7,12 +7,10 @@ import { ServicesSection } from "@/components/sections/services-section";
 import { AboutSection } from "@/components/sections/about-section";
 import { CtaSection } from "@/components/sections/cta-section";
 import { ContactSection } from "@/components/sections/contact-section";
-import { JsonLd } from "@/components/seo/json-ld";
 
 export default function HomePage() {
   return (
     <>
-      <JsonLd />
       <SiteHeader />
       <main className="flex-1">
         <HeroSection />
