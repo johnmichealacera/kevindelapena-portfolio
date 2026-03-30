@@ -79,6 +79,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteConfig.url,
   },
+  ...(siteConfig.facebookAppId
+    ? { facebook: { appId: siteConfig.facebookAppId } }
+    : {}),
 };
 
 export default function RootLayout({

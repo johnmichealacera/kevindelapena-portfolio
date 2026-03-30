@@ -58,6 +58,8 @@ export const siteConfig = {
   },
   twitterSite: process.env.NEXT_PUBLIC_TWITTER_SITE?.trim() || undefined,
   twitterCreator: process.env.NEXT_PUBLIC_TWITTER_CREATOR?.trim() || undefined,
+  /** Meta `fb:app_id` (developers.facebook.com app — not profile). */
+  facebookAppId: process.env.NEXT_PUBLIC_FACEBOOK_APP_ID?.trim() || undefined,
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@example.com",
   /** Full Calendly scheduling URL, e.g. https://calendly.com/yourname/discovery-call */
   calendlyUrl: process.env.NEXT_PUBLIC_CALENDLY_URL?.trim() || "",
