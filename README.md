@@ -36,7 +36,7 @@ Other scripts: `npm run build`, `npm run start`, `npm run lint`.
 |----------|---------|
 | `NEXT_PUBLIC_SITE_URL` | Canonical URL (metadata, sitemap, robots) |
 | `NEXT_PUBLIC_CONTACT_EMAIL` | Shown in footer and contact column |
-| `NEXT_PUBLIC_CALENDLY_URL` | Calendly embed URL (optional) |
+| `NEXT_PUBLIC_CALENDLY_URL` | Full Calendly event URL (e.g. `https://calendly.com/name/event`); used for links and the official inline embed on the contact section |
 | `CONTACT_TO` | Target inbox when you add email sending in the API route |
 
 Branding and default copy live in `src/lib/site-config.ts`. Project stories and demo media live in `src/data/projects.ts`.

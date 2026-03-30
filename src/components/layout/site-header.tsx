@@ -11,7 +11,12 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { navLinks, siteConfig } from "@/lib/site-config";
+import {
+  bookingConsultationHref,
+  hasCalendlyBooking,
+  navLinks,
+  siteConfig,
+} from "@/lib/site-config";
 import { useActiveSection, navHrefToSectionId } from "@/hooks/use-active-section";
 import { cn } from "@/lib/utils";
 
@@ -55,14 +60,21 @@ export function SiteHeader() {
             );
           })}
           <Link
-            href="/#contact"
+            href={bookingConsultationHref()}
+            target={hasCalendlyBooking() ? "_blank" : undefined}
+            rel={hasCalendlyBooking() ? "noopener noreferrer" : undefined}
             className={cn(
               buttonVariants({ variant: "default", size: "sm" }),
               "h-9 px-4 transition-shadow duration-200",
-              activeSection === "contact" &&
+              !hasCalendlyBooking() &&
+                activeSection === "contact" &&
                 "ring-primary-foreground/35 shadow-md ring-2"
             )}
-            aria-current={activeSection === "contact" ? "location" : undefined}
+            aria-current={
+              !hasCalendlyBooking() && activeSection === "contact"
+                ? "location"
+                : undefined
+            }
           >
             Book a call
           </Link>
@@ -108,11 +120,16 @@ export function SiteHeader() {
                 <SheetClose
                   render={
                     <Link
-                      href="/#contact"
+                      href={bookingConsultationHref()}
+                      target={hasCalendlyBooking() ? "_blank" : undefined}
+                      rel={
+                        hasCalendlyBooking() ? "noopener noreferrer" : undefined
+                      }
                       className={cn(
                         buttonVariants({ variant: "default" }),
                         "mt-4 justify-center",
-                        activeSection === "contact" &&
+                        !hasCalendlyBooking() &&
+                          activeSection === "contact" &&
                           "ring-primary-foreground/35 ring-2"
                       )}
                     />

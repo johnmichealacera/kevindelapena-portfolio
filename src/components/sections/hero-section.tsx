@@ -4,7 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { buttonVariants } from "@/components/ui/button";
-import { siteConfig } from "@/lib/site-config";
+import {
+  bookingConsultationHref,
+  hasCalendlyBooking,
+  siteConfig,
+} from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
 const HERO_IMAGE = "/kevindelapena_enhance.jpg";
@@ -73,7 +77,11 @@ export function HeroSection() {
                 View Projects
               </Link>
               <Link
-                href="/#contact"
+                href={bookingConsultationHref()}
+                target={hasCalendlyBooking() ? "_blank" : undefined}
+                rel={
+                  hasCalendlyBooking() ? "noopener noreferrer" : undefined
+                }
                 className={cn(
                   buttonVariants({ variant: "outline", size: "lg" }),
                   "h-11 border-border/80 px-6 text-base"

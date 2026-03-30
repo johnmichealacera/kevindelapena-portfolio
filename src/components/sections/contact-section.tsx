@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { FadeIn } from "@/components/motion/fade-in";
+import { CalendlyInlineEmbed } from "@/components/calendly-inline-embed";
 import { siteConfig } from "@/lib/site-config";
 
 export function ContactSection() {
@@ -62,11 +63,11 @@ export function ContactSection() {
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl text-lg leading-relaxed">
             Tell me about your tools, volume, and the outcome you want. I reply
-            within one business day—or book a slot directly if you use Calendly.
+            within one business day—or pick a time on my calendar below.
           </p>
         </FadeIn>
-        <div className="mt-12 grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <FadeIn delay={0.06}>
+        <div className="mt-12 grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-start">
+          <FadeIn delay={0.06} className="min-w-0">
             <form
               onSubmit={handleSubmit}
               className="space-y-5"
@@ -132,8 +133,8 @@ export function ContactSection() {
               ) : null}
             </form>
           </FadeIn>
-          <FadeIn delay={0.12}>
-            <div className="space-y-6">
+          <FadeIn delay={0.12} className="min-w-0">
+            <div className="flex flex-col gap-10">
               <div>
                 <h3 className="font-heading text-sm font-semibold text-foreground">
                   Direct email
@@ -146,24 +147,25 @@ export function ContactSection() {
                 </a>
               </div>
               {siteConfig.calendlyUrl ? (
-                <div className="space-y-3">
-                  <h3 className="font-heading text-sm font-semibold text-foreground">
-                    Schedule a call
-                  </h3>
-                  <div className="border-border/80 aspect-[4/3] w-full overflow-hidden rounded-xl border bg-muted/30">
-                    <iframe
-                      title="Calendly scheduling"
-                      src={siteConfig.calendlyUrl}
-                      className="size-full min-h-[520px]"
-                      loading="lazy"
-                    />
+                <div className="flex min-w-0 flex-col gap-3">
+                  <div>
+                    <h3 className="font-heading text-sm font-semibold text-foreground">
+                      Schedule a call
+                    </h3>
+                    <p className="text-muted-foreground mt-1 text-sm leading-relaxed">
+                      Scroll inside the calendar if needed—the confirmation
+                      controls stay within this panel.
+                    </p>
                   </div>
+                  <CalendlyInlineEmbed
+                    schedulingUrl={siteConfig.calendlyUrl}
+                    layout="sidebar"
+                  />
                 </div>
               ) : (
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  Prefer a live call? I can embed your Calendly schedule here—
-                  configure the public embed URL in your site environment when
-                  you are ready.
+                  Prefer a live call? Add your Calendly URL to the site
+                  configuration to embed your calendar here.
                 </p>
               )}
             </div>

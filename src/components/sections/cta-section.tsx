@@ -3,6 +3,10 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { buttonVariants } from "@/components/ui/button";
+import {
+  bookingConsultationHref,
+  hasCalendlyBooking,
+} from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
 export function CtaSection() {
@@ -39,7 +43,9 @@ export function CtaSection() {
           </p>
           <div className="relative mt-8">
             <Link
-              href="/#contact"
+              href={bookingConsultationHref()}
+              target={hasCalendlyBooking() ? "_blank" : undefined}
+              rel={hasCalendlyBooking() ? "noopener noreferrer" : undefined}
               className={cn(
                 buttonVariants({ variant: "default", size: "lg" }),
                 "h-11 px-8 text-base"
