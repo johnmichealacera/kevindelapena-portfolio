@@ -13,7 +13,7 @@ function envUrl(key: string): string | undefined {
 }
 
 /** Open Graph / Twitter / link previews (Facebook, LinkedIn, Instagram, JobStreet, etc.) */
-export const ogImagePath = "/kevindelapena_va.jpg";
+export const ogImagePath = "/kevindelapena_enhance.jpg";
 
 export const siteConfig = {
   name: "Kevin Dela Peña",
