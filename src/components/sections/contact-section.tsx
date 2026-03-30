@@ -134,7 +134,7 @@ export function ContactSection() {
             </form>
           </FadeIn>
           <FadeIn delay={0.12} className="min-w-0">
-            <div className="flex flex-col gap-10">
+            <div className="flex flex-col gap-6">
               <div>
                 <h3 className="font-heading text-sm font-semibold text-foreground">
                   Direct email
@@ -147,12 +147,12 @@ export function ContactSection() {
                 </a>
               </div>
               {siteConfig.calendlyUrl ? (
-                <div className="flex min-w-0 flex-col gap-3">
+                <div className="flex min-w-0 flex-col gap-2">
                   <div>
                     <h3 className="font-heading text-sm font-semibold text-foreground">
                       Schedule a call
                     </h3>
-                    <p className="text-muted-foreground mt-1 text-sm leading-relaxed">
+                    <p className="text-muted-foreground mt-1 text-xs leading-relaxed">
                       Scroll inside the calendar if needed—the confirmation
                       controls stay within this panel.
                     </p>

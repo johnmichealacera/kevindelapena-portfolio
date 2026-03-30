@@ -170,21 +170,39 @@
   height: 100% !important;
 }
 
-/* Right column: tall enough to reach bottom actions; inner iframe scrolls */
-.calendly-inline-widget-root--sidebar .calendly-inline-widget {
-  height: min(78dvh, 920px) !important;
-  min-height: 640px !important;
+/*
+  Calendly often injects iframe directly under .calendly-inline-widget-root
+  (no .calendly-inline-widget). Size the root and direct iframe.
+*/
+.calendly-inline-widget-root--sidebar {
+  min-height: 620px !important;
+  height: min(72dvh, 920px) !important;
 }
 
+.calendly-inline-widget-root--sidebar > iframe {
+  display: block !important;
+  width: 100% !important;
+  min-height: min(72dvh, 920px) !important;
+  height: min(72dvh, 920px) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  vertical-align: top !important;
+}
+
+/* Legacy wrapper path (some embed versions) */
+.calendly-inline-widget-root--sidebar .calendly-inline-widget {
+  min-height: 620px !important;
+  height: min(72dvh, 920px) !important;
+}
+
+/* Let the page scroll; avoid an extra nested scroll shell that hides height */
 .calendly-embed-sidebar {
-  max-height: min(85dvh, 960px);
-  overflow: auto;
-  overscroll-behavior: contain;
+  overflow: visible;
 }
 
 /* Optional full-width section */
 .calendly-inline-widget-root:not(.calendly-inline-widget-root--sidebar)
   .calendly-inline-widget {
-  height: min(90dvh, 1200px) !important;
-  min-height: min(80dvh, 1000px) !important;
+  height: min(78dvh, 1020px) !important;
+  min-height: min(62dvh, 640px) !important;
 }
