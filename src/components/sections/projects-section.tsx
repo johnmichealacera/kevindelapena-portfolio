@@ -17,8 +17,8 @@ export function ProjectsSection() {
             Selected workflows
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl text-lg leading-relaxed">
-            Real-world n8n automation and AI orchestration—click a card to open
-            screenshots or video of the workflow in action.
+            Real-world n8n automation and AI orchestration, with screenshots and
+            video walkthroughs for each project.
           </p>
         </FadeIn>
         <ProjectsWorkflowGrid />

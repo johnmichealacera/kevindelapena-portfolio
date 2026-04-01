@@ -176,9 +176,8 @@ export function ProjectsWorkflowGrid() {
                 <DialogTitle className="text-lg sm:text-xl">
                   {active.title}
                 </DialogTitle>
-                <DialogDescription className="text-base leading-relaxed">
-                  Workflow in action—replace these assets with your own n8n
-                  screenshots or Loom-style recordings anytime.
+                <DialogDescription className="sr-only">
+                  Workflow demonstration and media for this project.
                 </DialogDescription>
                 {active.demonstration.length > 1 ? (
                   <div
