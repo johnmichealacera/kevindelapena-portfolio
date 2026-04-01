@@ -12,8 +12,9 @@ function envUrl(key: string): string | undefined {
   }
 }
 
-/** Open Graph / Twitter / link previews (Facebook, LinkedIn, Instagram, JobStreet, etc.) */
-export const ogImagePath = "/kevindelapena_enhance.jpg";
+/** Hero + Open Graph / Twitter / JSON-LD (Cloudinary) */
+export const siteImageUrl =
+  "https://res.cloudinary.com/dofpspduc/image/upload/f_auto,q_auto/v1775010841/kevindelapena_enhance_rhmbhh.jpg";
 
 export const siteConfig = {
   name: "Kevin Dela Peña",
@@ -42,9 +43,8 @@ export const siteConfig = {
     "no-code automation",
     "Philippines VA",
   ],
-  /** Absolute image URL for JSON-LD and sharing debuggers */
   get ogImageUrl() {
-    return `${this.url}${ogImagePath}`;
+    return siteImageUrl;
   },
   ogImageAlt:
     "Kevin Dela Peña — AI automation specialist and n8n workflow expert",

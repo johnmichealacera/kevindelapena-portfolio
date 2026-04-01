@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 import { JsonLd } from "@/components/seo/json-ld";
-import { ogImagePath, siteConfig } from "@/lib/site-config";
+import { siteConfig, siteImageUrl } from "@/lib/site-config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: ogImagePath,
+        url: siteImageUrl,
         alt: siteConfig.ogImageAlt,
         type: "image/jpeg",
       },
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [ogImagePath],
+    images: [siteImageUrl],
     ...(siteConfig.twitterSite ? { site: siteConfig.twitterSite } : {}),
     ...(siteConfig.twitterCreator ? { creator: siteConfig.twitterCreator } : {}),
   },

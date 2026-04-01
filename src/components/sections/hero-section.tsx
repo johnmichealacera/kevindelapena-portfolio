@@ -8,10 +8,9 @@ import {
   bookingConsultationHref,
   hasCalendlyBooking,
   siteConfig,
+  siteImageUrl,
 } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
-
-const HERO_IMAGE = "/kevindelapena_enhance.jpg";
 
 export function HeroSection() {
   return (
@@ -118,7 +117,7 @@ export function HeroSection() {
                 >
                   <div className="relative aspect-[4/5] overflow-hidden rounded-[1.28rem] bg-card ring-1 ring-black/5 dark:ring-white/10">
                     <Image
-                      src={HERO_IMAGE}
+                      src={siteImageUrl}
                       alt={`${siteConfig.name}, virtual assistant specializing in AI automation and n8n workflows`}
                       fill
                       priority
