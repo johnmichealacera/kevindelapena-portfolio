@@ -16,6 +16,29 @@ function envUrl(key: string): string | undefined {
 export const siteImageUrl =
   "https://res.cloudinary.com/dofpspduc/image/upload/f_auto,q_auto/v1775010841/kevindelapena_enhance_rhmbhh.jpg";
 
+export const linkedInProfileUrl =
+  envUrl("NEXT_PUBLIC_LINKEDIN_URL") ??
+  "https://www.linkedin.com/in/kevin-dela-pena/";
+
+export const jobStreetProfileUrl =
+  "https://ph.jobstreet.com/profiles/kevin-delapea-2xM8Y9XZGJ";
+
+export const onlineJobsProfileUrl =
+  "https://www.onlinejobs.ph/jobseekers/info/4879117";
+
+export type HiringProfileBrand = "linkedin" | "jobstreet" | "onlinejobs";
+
+/** Footer + structured data — hiring / professional profiles */
+export const hiringProfileLinks: {
+  brand: HiringProfileBrand;
+  label: string;
+  href: string;
+}[] = [
+  { brand: "linkedin", label: "LinkedIn", href: linkedInProfileUrl },
+  { brand: "jobstreet", label: "JobStreet", href: jobStreetProfileUrl },
+  { brand: "onlinejobs", label: "OnlineJobs.ph", href: onlineJobsProfileUrl },
+];
+
 export const siteConfig = {
   name: "Kevin Dela Peña",
   /** Page title & primary SEO title */
@@ -51,7 +74,7 @@ export const siteConfig = {
   openGraphLocale: "en_US",
   /** Optional profile URLs — set in .env for Google Knowledge Panel–style sameAs hints */
   socialProfiles: {
-    linkedin: envUrl("NEXT_PUBLIC_LINKEDIN_URL"),
+    linkedin: linkedInProfileUrl,
     twitter: envUrl("NEXT_PUBLIC_TWITTER_URL"),
     facebook: envUrl("NEXT_PUBLIC_FACEBOOK_URL"),
     instagram: envUrl("NEXT_PUBLIC_INSTAGRAM_URL"),
@@ -67,9 +90,14 @@ export const siteConfig = {
 
 export function siteJsonLdSameAs(): string[] {
   const { linkedin, twitter, facebook, instagram } = siteConfig.socialProfiles;
-  return [linkedin, twitter, facebook, instagram].filter(
-    (u): u is string => Boolean(u)
-  );
+  return [
+    linkedin,
+    twitter,
+    facebook,
+    instagram,
+    jobStreetProfileUrl,
+    onlineJobsProfileUrl,
+  ].filter((u): u is string => Boolean(u));
 }
 
 /** Opens Calendly in a new tab when configured; otherwise scrolls to #contact */
