@@ -60,9 +60,11 @@ export const projects: AutomationProject[] = [
         alt: "Email and messaging interface concept for automated inbox triage",
       },
       {
-        type: "image",
-        src: "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?auto=format&fit=crop&w=1600&q=85",
-        alt: "Customer support workspace showing ticket workflow automation",
+        type: "video",
+        src: "https://res.cloudinary.com/dofpspduc/video/upload/v1775192556/email_triage_support_sijzya.mp4",
+        alt: "Screen recording of support inbox triage and auto-response automation in n8n",
+        poster:
+          "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1600&q=85",
       },
     ],
   },
