@@ -34,14 +34,14 @@ export const projects: AutomationProject[] = [
       {
         type: "image",
         src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=85",
-        alt: "CRM dashboard and analytics representing automated lead routing",
+        alt: "Analytics and pipeline imagery for AI lead qualification and CRM routing",
       },
       {
         type: "video",
-        src: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
-        alt: "Screen recording walkthrough of the n8n lead scoring and routing workflow",
+        src: "https://res.cloudinary.com/dofpspduc/video/upload/v1775283828/AI_Lead_Qual_tgs4jw.mp4",
+        alt: "Recorded demo: AI lead qualification, scoring, and CRM routing workflow in n8n",
         poster:
-          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=85",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=85",
       },
     ],
   },
